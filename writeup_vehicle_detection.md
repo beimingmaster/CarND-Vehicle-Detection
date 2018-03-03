@@ -48,11 +48,11 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 example of vehicle image:
 
-![vehicle image](train_data/vehicles/GTI_Far/image0039.png)
+![vehicle image](image0039.png)
 
 example of non-vehicle image:
 
-![vehicle image](train_data/non-vehicles/GTI/image1024.png)
+![vehicle image](image1024.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
