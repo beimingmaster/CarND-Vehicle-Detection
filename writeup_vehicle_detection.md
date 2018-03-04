@@ -27,6 +27,18 @@ The goals / steps of this project are the following:
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
+In this implementation, it includes for parts:
+
+- collecting training images, vehicles and non-vehicles
+- selecting combined features, including spatial feature, color feature and hog feature
+- selecting linear svm model
+- spliting training images into training set and test set
+- starting training
+- dumping result of training
+- checking example images
+- checking project video 
+
+
 ---
 ### Writeup / README
 
@@ -42,17 +54,17 @@ my full code is in the file "vehicle_classify_v1.ipynb"
 
 code of extract hog features is in the function "get_hog_features"
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+The code for this step is contained in the second code cell of the IPython notebook file "vehicle_classify_v1.ipynb"
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 example of vehicle image:
 
-![vehicle image](image0039.png)
+![vehicle image](train_data/vehicles/GTI_Far/image0039.png)
 
 example of non-vehicle image:
 
-![vehicle image](image1024.png)
+![vehicle image](train_data/non-vehicles/GTI/image1024.png)
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
@@ -93,18 +105,37 @@ I decided to search random window positions at random scales all over the image 
 
 code of sliding window search is in the function "find_cars"
 
+i test and check example images by search multi-scale window, i select
+three scale: 1, 1.5, 2
+
+my test code is in the function "test_example_images_for_multi_scales"
+
+![search scale 1.0](output_images/search_window_scale10.png)
+![search scale 1.5](output_images/search_window_scale15.png)
+![search scale 2.0](output_images/search_window_scale20.png)
+
+
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![sliding test1](output_images/sliding_box_test1.png)
-![sliding test2](output_images/sliding_box_test2.png)
-![sliding test3](output_images/sliding_box_test3.png)
-![sliding test4](output_images/sliding_box_test4.png)
-![sliding test5](output_images/sliding_box_test5.png)
-![sliding test6](output_images/sliding_box_test6.png)
+examples of only one scale:
+
+![search test1](output_images/sliding_box_test1.png)
+![search test2](output_images/sliding_box_test2.png)
+![search test3](output_images/sliding_box_test3.png)
+![search test4](output_images/sliding_box_test4.png)
+![search test5](output_images/sliding_box_test5.png)
+![search test6](output_images/sliding_box_test6.png)
 
 ---
+
+examples of mixed multi scales:
+![search with multi scales](output_images/search_window_multi_scale.png)
+
+examples of add svc threshold (0.7):
+![search with svc threshold](output_images/search_window_multi_scale_svc_threshold.png)
+
 
 ### Video Implementation
 
@@ -139,5 +170,5 @@ code of test video frame images is in the function "test_video_images"
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
-many false positives
+two cars may be in the one window, when one car just appeared. 
 
