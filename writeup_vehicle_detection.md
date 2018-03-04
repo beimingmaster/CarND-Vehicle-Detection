@@ -122,18 +122,25 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 examples of only one scale:
 
 ![search test1](output_images/sliding_box_test1.png)
+
 ![search test2](output_images/sliding_box_test2.png)
+
 ![search test3](output_images/sliding_box_test3.png)
+
 ![search test4](output_images/sliding_box_test4.png)
+
 ![search test5](output_images/sliding_box_test5.png)
+
 ![search test6](output_images/sliding_box_test6.png)
 
 ---
 
 examples of mixed multi scales:
+
 ![search with multi scales](output_images/search_window_multi_scale.png)
 
 examples of add svc threshold (0.7):
+
 ![search with svc threshold](output_images/search_window_multi_scale_svc_threshold.png)
 
 
