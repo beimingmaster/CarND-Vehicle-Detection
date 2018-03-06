@@ -177,5 +177,6 @@ code of test video frame images is in the function "test_video_images"
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
 
-two cars may be in the one window, when one car just appeared. 
+- yolo framework is more better than svm and hog feature, it could get correctness above 99.6%, in the future, i would like to try it
+- in this project, outline box (y_start, y_stop) of search window is fixed, it was not so good
 
